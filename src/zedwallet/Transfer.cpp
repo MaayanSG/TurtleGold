@@ -822,6 +822,7 @@ Maybe<uint64_t> getFee()
         std::cout << std::endl 
                   << InformationMsg("What fee do you want to use?")
                   << std::endl
+                  << "Recommended fee is 1 TRTG."
                   << "Hit enter for the default fee of "
                   << formatAmount(WalletConfig::defaultFee)
                   << ": ";
@@ -858,6 +859,7 @@ Maybe<uint64_t> getTransferAmount()
                   << InformationMsg("How much ")
                   << InformationMsg(WalletConfig::ticker)
                   << InformationMsg(" do you want to send?: ");
+                  << "We recommend to optimize before sending high transactions."
 
         std::getline(std::cin, stringAmount);
 
@@ -1009,7 +1011,7 @@ AddressType parseAddress(std::string address)
     if (address.length() != WalletConfig::standardAddressLength &&
         address.length() != WalletConfig::integratedAddressLength)
     {
-        std::cout << WarningMsg("Address is wrong length!") << std::endl
+        std::cout << WarningMsg("Address given is invalid or has wrong length!") << std::endl
                   << "It should be " << WalletConfig::standardAddressLength
                   << " or " << WalletConfig::integratedAddressLength
                   << " characters long, but it is " << address.length()
@@ -1056,7 +1058,7 @@ bool parseStandardAddress(std::string address, bool printErrors)
     {
         if (printErrors)
         {
-            std::cout << WarningMsg("Address is wrong length!") << std::endl
+            std::cout << WarningMsg("Address given is invalid or has wrong length!") << std::endl
                       << "It should be " << WalletConfig::standardAddressLength
                       << " characters long, but it is " << address.length()
                       << " characters long!" << std::endl << std::endl;
