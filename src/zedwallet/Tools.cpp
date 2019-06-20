@@ -1,4 +1,5 @@
 // Copyright (c) 2018, The TurtleCoin Developers
+// Copyright (c) 2019, The TurtleGold Developers
 // 
 // Please see the included LICENSE file for more information.
 
@@ -341,7 +342,7 @@ bool shutdown(std::shared_ptr<WalletInfo> walletInfo, CryptoNote::INode &node,
             {
                 std::cout << WarningMsg("Wallet took too long to save! "
                                         "Force closing.") << std::endl
-                          << "Bye." << std::endl;
+                          << "Closed wallet." << std::endl;
                 exit(0);
             }
 
@@ -371,7 +372,7 @@ bool shutdown(std::shared_ptr<WalletInfo> walletInfo, CryptoNote::INode &node,
     /* Wait for shutdown watcher to finish */
     timelyShutdown.join();
 
-    std::cout << "Bye." << std::endl;
+    std::cout << "Successfully closed wallet." << std::endl;
     
     return true;
 }

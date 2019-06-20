@@ -1,7 +1,8 @@
 //
 // Copyright 2014-2018 The Monero Developers
 // Copyright 2018 The TurtleCoin Developers
-//
+// Copyright 2019 The TurtleGold Developers
+
 // Please see the included LICENSE file for more information.
 
 namespace Mnemonics
@@ -57,6 +58,7 @@ namespace Mnemonics
             "aided",
             "ailments",
             "aimless",
+            "aircraft",
             "airport",
             "aisle",
             "ajar",
@@ -225,6 +227,7 @@ namespace Mnemonics
             "bunch",
             "business",
             "butter",
+            "button",
             "buying",
             "buzzer",
             "bygones",
@@ -241,6 +244,7 @@ namespace Mnemonics
             "camp",
             "candy",
             "casket",
+            "cat",
             "catch",
             "cause",
             "cavernous",
@@ -280,6 +284,7 @@ namespace Mnemonics
             "costume",
             "cottage",
             "cousin",
+            "country",
             "cowl",
             "criminal",
             "cube",
@@ -323,6 +328,7 @@ namespace Mnemonics
             "deodorant",
             "depth",
             "desk",
+            "developer",
             "devoid",
             "dewdrop",
             "dexterity",
@@ -862,6 +868,7 @@ namespace Mnemonics
             "maul",
             "maverick",
             "maximum",
+            "mayaan",
             "mayor",
             "maze",
             "meant",
@@ -883,7 +890,9 @@ namespace Mnemonics
             "mirror",
             "misery",
             "mittens",
+            "military",
             "mixture",
+            "mine",
             "moat",
             "mobile",
             "mocked",
@@ -913,6 +922,7 @@ namespace Mnemonics
             "muzzle",
             "myriad",
             "mystery",
+            "mystic",
             "myth",
             "nabbing",
             "nagged",
@@ -1190,6 +1200,7 @@ namespace Mnemonics
             "rising",
             "ritual",
             "river",
+            "road",
             "roared",
             "robot",
             "rockets",
@@ -1297,6 +1308,7 @@ namespace Mnemonics
             "snake",
             "sneeze",
             "sniff",
+            "sniper",
             "snout",
             "snug",
             "soapy",
