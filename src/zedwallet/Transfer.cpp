@@ -859,7 +859,7 @@ Maybe<uint64_t> getTransferAmount()
         std::cout << std::endl
                   << InformationMsg("How much ")
                   << InformationMsg(WalletConfig::ticker)
-                  << InformationMsg(" do you want to send?: ");
+                  << InformationMsg(" do you want to send?: ")
                   << "We recommend to optimize before sending high transactions."
 
         std::getline(std::cin, stringAmount);
