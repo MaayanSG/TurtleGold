@@ -860,7 +860,7 @@ Maybe<uint64_t> getTransferAmount()
                   << InformationMsg("How much ")
                   << InformationMsg(WalletConfig::ticker)
                   << InformationMsg(" do you want to send?: ")
-                  << "We recommend to optimize before sending high transactions."
+                  << "We recommend to optimize before sending high transactions.";
 
         std::getline(std::cin, stringAmount);
 
