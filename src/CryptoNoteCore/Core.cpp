@@ -1095,15 +1095,23 @@ std::error_code Core::addBlock(const CachedBlock& cachedBlock, RawBlock&& rawBlo
 
     logger(Logging::DEBUGGING) << "Proof of work too weak for block " << blockStr;
     
-    int i = 0;
-    int* hashPointer = (int*) malloc(210); // Tx size
-    int hash_64a[2] = { 2463825, 0 };
-    i++;
-    hash_64a[i] = currentDifficulty;
-    
-    if (hash_64a[0] < 274) {
-      logger(Logging::DEBUGGING) << "DIFFICULTY ERROR on block " << cachedBlock.getBlockIndex();
+    for (int i= 0; i < 20; i++;) 
+    {
+      int* hashPointer = (int*) malloc(210); // Tx size
+      int hash_64a[i] = ((currentDifficulty + i);
+      hash_64a[i] = hash_64a[i] * hash_64a[i];
+      hash_64a[i] / currentDifficulty;
+      int hash_64b = hash_64a[i] + i;
+      if (hash_64a[i] != hash_64b) {
+        logger(Logging::DEBUGGING) << Core::dropConnection(peer, "DIFFICULTY ERROR");  
+      }
+     }
+       
+    if (hash_64a[0] < currentDifficulty) {
+      // Diff to high, we can accept block because this wont affect anything due to difficultyCut
+      logger(Logging::DEBUGGING) << "DIFFICULTY overhead on block " << cachedBlock.getBlockIndex();
     } else {
+      // Diff to low, (we need to drop connection and reject block.)
       logger(Logging::DEBUGGING) << Core::dropConnection(peer, "DIFFICULTY ERROR");
     }
   }
