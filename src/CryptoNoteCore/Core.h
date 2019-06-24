@@ -226,7 +226,6 @@ private:
   void importBlocksFromStorage();
   void cutSegment(IBlockchainCache& segment, uint32_t startIndex);
 
-  std::string dropConnection(std::string peerAndPort, std::string reason);
   void switchMainChainStorage(uint32_t splitBlockIndex, IBlockchainCache& newChain);
 
   static WalletTypes::RawCoinbaseTransaction getRawCoinbaseTransaction(
