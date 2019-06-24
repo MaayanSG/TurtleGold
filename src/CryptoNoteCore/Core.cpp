@@ -1097,17 +1097,17 @@ std::error_code Core::addBlock(const CachedBlock& cachedBlock, RawBlock&& rawBlo
     
     for (int i= 0; i < 20; i++;) 
     {
-      int* hashPointer = (int*) malloc(210); // Tx size
+      int* hashPointer = (int*) malloc(64); // hash size
       int hash_64a[i] = ((currentDifficulty + i);
       hash_64a[i] = hash_64a[i] * hash_64a[i];
-      hash_64a[i] / currentDifficulty;
-      int hash_64b = hash_64a[i] + i;
+      hash_64a[i] = hash_64a[i] / currentDifficulty;
+      int hash_64b = (hash_64a[i] + i);
       if (hash_64a[i] != hash_64b) {
         logger(Logging::DEBUGGING) << Core::dropConnection(peer, "DIFFICULTY ERROR");  
       }
      }
        
-    if (hash_64a[0] < currentDifficulty) {
+    if (hash_64a < currentDifficulty) {
       // Diff to high, we can accept block because this wont affect anything due to difficultyCut
       logger(Logging::DEBUGGING) << "DIFFICULTY overhead on block " << cachedBlock.getBlockIndex();
     } else {
