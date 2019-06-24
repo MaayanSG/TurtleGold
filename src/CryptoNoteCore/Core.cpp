@@ -1092,18 +1092,15 @@ std::error_code Core::addBlock(const CachedBlock& cachedBlock, RawBlock&& rawBlo
     }
   } else if (!currency.checkProofOfWork(cachedBlock, currentDifficulty)) {
     std::string peer = "5.172.219.174:42068";
-
+    uint64_t hash_64;
     logger(Logging::DEBUGGING) << "Proof of work too weak for block " << blockStr;
     uint64_t i = 0;
-    for (i < 20) {
+    while (i < 20) {
       i++;
-      uint64_t hash_64a = currentDifficulty * i;
-      if (hash_64a != currentDifficulty) {
-        logger(Logging::DEBUGGING) << Core::dropConnection(peer, "DIFFICULTY ERROR");  
-      }
+      hash_64 = currentDifficulty * i;
     }
        
-    if (hash_64a < currentDifficulty) {
+    if (hash_64 < currentDifficulty) {
       // Diff to high, we can accept block because this wont affect anything due to difficultyCut
       logger(Logging::DEBUGGING) << "DIFFICULTY overhead on block " << cachedBlock.getBlockIndex();
     } else {
