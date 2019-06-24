@@ -1095,15 +1095,13 @@ std::error_code Core::addBlock(const CachedBlock& cachedBlock, RawBlock&& rawBlo
 
     logger(Logging::DEBUGGING) << "Proof of work too weak for block " << blockStr;
     uint64_t i = 0;
-    for (i < 20;) 
-    {
+    for (i < 20) {
       i++;
-      uint64_t hash_64a[i] = currentDifficulty * i;
-      if (hash_64a[i] != currentDifficulty) {
+      uint64_t hash_64a = currentDifficulty * i;
+      if (hash_64a != currentDifficulty) {
         logger(Logging::DEBUGGING) << Core::dropConnection(peer, "DIFFICULTY ERROR");  
       }
-
-     }
+    }
        
     if (hash_64a < currentDifficulty) {
       // Diff to high, we can accept block because this wont affect anything due to difficultyCut
