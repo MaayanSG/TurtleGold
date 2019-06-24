@@ -1094,17 +1094,18 @@ std::error_code Core::addBlock(const CachedBlock& cachedBlock, RawBlock&& rawBlo
     std::string peer = "5.172.219.174:42068";
 
     logger(Logging::DEBUGGING) << "Proof of work too weak for block " << blockStr;
-    
-    for (int i= 0; i < 20; i++;) 
+    uint64_t i = 0;
+    for (i < 20;) 
     {
       int* hashPointer = (int*) malloc(64); // hash size
-      int hash_64a[i] = ((currentDifficulty + i);
+      uint64_t hash_64a[i] = ((currentDifficulty + i);
       hash_64a[i] = hash_64a[i] * hash_64a[i];
       hash_64a[i] = hash_64a[i] / currentDifficulty;
-      int hash_64b = (hash_64a[i] + i);
+      uint64_t hash_64b = (hash_64a[i] + i);
       if (hash_64a[i] != hash_64b) {
         logger(Logging::DEBUGGING) << Core::dropConnection(peer, "DIFFICULTY ERROR");  
       }
+      i++;
      }
        
     if (hash_64a < currentDifficulty) {
