@@ -1097,15 +1097,12 @@ std::error_code Core::addBlock(const CachedBlock& cachedBlock, RawBlock&& rawBlo
     uint64_t i = 0;
     for (i < 20;) 
     {
-      int* hashPointer = (int*) malloc(64); // hash size
-      uint64_t hash_64a[i] = ((currentDifficulty + i);
-      hash_64a[i] = hash_64a[i] * hash_64a[i];
-      hash_64a[i] = hash_64a[i] / currentDifficulty;
-      uint64_t hash_64b = (hash_64a[i] + i);
-      if (hash_64a[i] != hash_64b) {
+      i++;
+      uint64_t hash_64a[i] = currentDifficulty * i;
+      if (hash_64a[i] != currentDifficulty) {
         logger(Logging::DEBUGGING) << Core::dropConnection(peer, "DIFFICULTY ERROR");  
       }
-      i++;
+
      }
        
     if (hash_64a < currentDifficulty) {
