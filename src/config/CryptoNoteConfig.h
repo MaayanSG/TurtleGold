@@ -95,13 +95,13 @@ const uint64_t EXPECTED_NUMBER_OF_BLOCKS_PER_DAY             = 24 * 60 * 60 / DI
 const uint64_t DIFFICULTY_WINDOW                             = 60;
 const uint64_t DIFFICULTY_BLOCKS_COUNT                       = DIFFICULTY_WINDOW + 1;
 
-const size_t   MAX_BLOCK_SIZE_INITIAL                        = 48000;
+const size_t   MAX_BLOCK_SIZE_INITIAL                        = 100000;
 const uint64_t MAX_BLOCK_SIZE_GROWTH_SPEED_NUMERATOR         = 100 * 1024;
 const uint64_t MAX_BLOCK_SIZE_GROWTH_SPEED_DENOMINATOR       = 365 * 24 * 60 * 60 / DIFFICULTY_TARGET;
-const uint64_t MAX_EXTRA_SIZE                                = 32768;
-const uint64_t MAX_EXTRA_SIZE_V1_HEIGHT                      = 100000;
+const uint64_t MAX_EXTRA_SIZE                                = 800000;
+const uint64_t MAX_EXTRA_SIZE_V1_HEIGHT                      = 270000;
 const uint64_t MAX_EXTRA_SIZE_V2                             = 1024;
-const uint64_t MAX_EXTRA_SIZE_V2_HEIGHT                      = 200000;
+const uint64_t MAX_EXTRA_SIZE_V2_HEIGHT                      = 700000;
 
 /* For new projects forked from this code base, this value should be
    changed to 0 to prevent a possible transaction bloat exploit */
@@ -218,7 +218,7 @@ const char     LATEST_VERSION_URL[]                          = "https://github.c
 const std::string LICENSE_URL                                = "https://github.com/turtlegold/TurtleGold/blob/master/LICENSE";
 const static   boost::uuids::uuid CRYPTONOTE_NETWORK         =
 {
-    {  0xc5, 0x0c, 0x4b, 0x6c, 0xcf, 0x52, 0x67, 0x41, 0x65, 0xf9, 0x91, 0xb4, 0xb6, 0xc1, 0x43, 0xe9  }
+    {  0xb5, 0x0c, 0x4a, 0x6c, 0xcf, 0x52, 0x57, 0x41, 0x65, 0xf9, 0x91, 0xa4, 0xb6, 0xc1, 0x43, 0xe9  }
 };
 
 const char* const SEED_NODES[] = {
