@@ -2,10 +2,10 @@
 #define STR(x) STR_HELPER(x)
 
 #define PROJECT_NAME "Turtle Gold"
-#define PROJECT_SITE "http://turtlegold.tk"
+#define PROJECT_SITE "http://derogold.tq"
 #define PROJECT_COPYRIGHT "Copyright 2019, The Turtle Gold Developers"
 
-#define APP_VER_MAJOR 2
+#define APP_VER_MAJOR 1
 #define APP_VER_MINOR 0
 #define APP_VER_REV 0
 #define APP_VER_BUILD 1
