@@ -222,7 +222,7 @@ const static   boost::uuids::uuid CRYPTONOTE_NETWORK         =
 };
 
 const char* const SEED_NODES[] = {
-    "94.211.137.5:42068" //MunchieHigh420 
+    "94.211.137.5:42068", //MunchieHigh420 
     "95.217.37.172:42068" //AlpHA
 };
 } // CryptoNote
