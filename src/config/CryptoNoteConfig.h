@@ -48,8 +48,7 @@ const uint64_t EMISSION_SPEED_FACTOR_V2_HEIGHT               = 1000000; // place
 
 
 /* Premine amount */
-const uint64_t GENESIS_BLOCK_REWARD                          = UINT64_C(0);
-
+const uint64_t GENESIS_BLOCK_REWARD                          = UINT64_C(360000000000000); //premine of circulating supply
 /* How to generate a premine:
 * Compile your code
 * Run zedwallet, ignore that it can't connect to the daemon, and generate an
@@ -178,8 +177,8 @@ const size_t   BLOCKS_IDS_SYNCHRONIZING_DEFAULT_COUNT        =  10000;  //by def
 const uint64_t BLOCKS_SYNCHRONIZING_DEFAULT_COUNT            =  100;    //by default, blocks count in blocks downloading
 const size_t   COMMAND_RPC_GET_BLOCKS_FAST_MAX_COUNT         =  1000;
 
-const int      P2P_DEFAULT_PORT                              =  42068;
-const int      RPC_DEFAULT_PORT                              =  42061;
+const int      P2P_DEFAULT_PORT                              =  42058;
+const int      RPC_DEFAULT_PORT                              =  42051;
 const int      SERVICE_DEFAULT_PORT                          =  1337;
 
 const size_t   P2P_LOCAL_WHITE_PEERLIST_LIMIT                =  1000;
@@ -222,7 +221,7 @@ const static   boost::uuids::uuid CRYPTONOTE_NETWORK         =
 };
 
 const char* const SEED_NODES[] = {
-    "94.211.137.5:42068", //MunchieHigh420 
-    "95.217.37.172:42068" //AlpHA
+    "94.211.137.5:42058", //MunchieHigh420 
+    "95.217.37.172:42058" //AlpHA
 };
 } // CryptoNote
