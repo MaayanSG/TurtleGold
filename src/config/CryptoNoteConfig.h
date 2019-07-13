@@ -97,10 +97,10 @@ const uint64_t DIFFICULTY_BLOCKS_COUNT                       = DIFFICULTY_WINDOW
 const size_t   MAX_BLOCK_SIZE_INITIAL                        = 100000;
 const uint64_t MAX_BLOCK_SIZE_GROWTH_SPEED_NUMERATOR         = 100 * 1024;
 const uint64_t MAX_BLOCK_SIZE_GROWTH_SPEED_DENOMINATOR       = 365 * 24 * 60 * 60 / DIFFICULTY_TARGET;
-const uint64_t MAX_EXTRA_SIZE                                = 800000;
-const uint64_t MAX_EXTRA_SIZE_V1_HEIGHT                      = 270000;
+const uint64_t MAX_EXTRA_SIZE                                = 1024;
+const uint64_t MAX_EXTRA_SIZE_V1_HEIGHT                      = 6000;
 const uint64_t MAX_EXTRA_SIZE_V2                             = 1024;
-const uint64_t MAX_EXTRA_SIZE_V2_HEIGHT                      = 700000;
+const uint64_t MAX_EXTRA_SIZE_V2_HEIGHT                      = 6001;
 
 /* For new projects forked from this code base, this value should be
    changed to 0 to prevent a possible transaction bloat exploit */
