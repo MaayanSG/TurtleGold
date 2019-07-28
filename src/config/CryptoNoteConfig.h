@@ -134,7 +134,6 @@ static_assert(UPGRADE_VOTING_WINDOW > 1, "Bad UPGRADE_VOTING_WINDOW");
 const uint64_t FORK_HEIGHTS[] =
 {
     50000 // 0, fork to cn_gold
-    1000000 // placeholder for difficulty target v2 and emission speed factor v2.
 };
 
 /* MAKE SURE TO UPDATE THIS VALUE WITH EVERY MAJOR RELEASE BEFORE A FORK */
