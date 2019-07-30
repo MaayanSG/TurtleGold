@@ -121,7 +121,7 @@ const uint32_t UPGRADE_HEIGHT_V2                             = 1;
 const uint32_t UPGRADE_HEIGHT_V3                             = 2;
 const uint32_t UPGRADE_HEIGHT_V4                             = 3;
 const uint32_t UPGRADE_HEIGHT_V5                             = 4;
-const uint32_t UPGRADE_HEIGHT_V6                             = 70000;
+const uint32_t UPGRADE_HEIGHT_V6                             = 50000;
 const uint32_t UPGRADE_HEIGHT_CURRENT                        = UPGRADE_HEIGHT_V6;
 
 const unsigned UPGRADE_VOTING_THRESHOLD                      = 90;               // percent
@@ -133,7 +133,7 @@ static_assert(UPGRADE_VOTING_WINDOW > 1, "Bad UPGRADE_VOTING_WINDOW");
 /* Block heights we are going to have hard forks at */
 const uint64_t FORK_HEIGHTS[] =
 {
-    70000 //  fork to cn_gold
+    50000 // 0, fork to cn_gold
     1000000 // placeholder for difficulty target v2 and emission speed factor v2.
 };
 
