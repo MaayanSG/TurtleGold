@@ -55,7 +55,7 @@ namespace WalletConfig
                                            + ((64 * 11) / 8);
 
     /* The default fee value to use with transactions (in ATOMIC units!) */
-    const uint64_t defaultFee = 10000; 
+    const uint64_t defaultFee = 100; 
 
     /* The minimum fee value to allow with transactions (in ATOMIC units!) */
     const uint64_t minimumFee = 10;
