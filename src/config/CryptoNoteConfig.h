@@ -78,7 +78,7 @@ const size_t   CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE        = 600;
 
 const size_t   CRYPTONOTE_DISPLAY_DECIMAL_POINT              = 2;
 
-const uint64_t MINIMUM_FEE                                   = UINT64_C(10000);
+const uint64_t MINIMUM_FEE                                   = UINT64_C(10);
 
 /* This section defines our minimum and maximum mixin counts required for transactions */
 const uint64_t MINIMUM_MIXIN_V0                              = 0;
@@ -98,7 +98,7 @@ const size_t   MAX_BLOCK_SIZE_INITIAL                        = 100000;
 const uint64_t MAX_BLOCK_SIZE_GROWTH_SPEED_NUMERATOR         = 100 * 1024;
 const uint64_t MAX_BLOCK_SIZE_GROWTH_SPEED_DENOMINATOR       = 365 * 24 * 60 * 60 / DIFFICULTY_TARGET;
 const uint64_t MAX_EXTRA_SIZE                                = 1024;
-const uint64_t MAX_EXTRA_SIZE_V1_HEIGHT                      = 70000;
+const uint64_t MAX_EXTRA_SIZE_V1_HEIGHT                      = 100000;
 const uint64_t MAX_EXTRA_SIZE_V2                             = 1024;
 const uint64_t MAX_EXTRA_SIZE_V2_HEIGHT                      = 700000;
 
@@ -121,8 +121,7 @@ const uint32_t UPGRADE_HEIGHT_V2                             = 1;
 const uint32_t UPGRADE_HEIGHT_V3                             = 2;
 const uint32_t UPGRADE_HEIGHT_V4                             = 3;
 const uint32_t UPGRADE_HEIGHT_V5                             = 4;
-const uint32_t UPGRADE_HEIGHT_V6                             = 70000;
-const uint32_t UPGRADE_HEIGHT_CURRENT                        = UPGRADE_HEIGHT_V6;
+const uint32_t UPGRADE_HEIGHT_CURRENT                        = UPGRADE_HEIGHT_V5;
 
 const unsigned UPGRADE_VOTING_THRESHOLD                      = 90;               // percent
 const uint32_t UPGRADE_VOTING_WINDOW                         = EXPECTED_NUMBER_OF_BLOCKS_PER_DAY;  // blocks
@@ -133,8 +132,7 @@ static_assert(UPGRADE_VOTING_WINDOW > 1, "Bad UPGRADE_VOTING_WINDOW");
 /* Block heights we are going to have hard forks at */
 const uint64_t FORK_HEIGHTS[] =
 {
-    70000, //  fork to cn_gold
-    1000000 // placeholder for difficulty target v2 and emission speed factor v2.
+    1000000 // placeholder
 };
 
 /* MAKE SURE TO UPDATE THIS VALUE WITH EVERY MAJOR RELEASE BEFORE A FORK */
@@ -144,7 +142,7 @@ const uint64_t FORK_HEIGHTS_SIZE = sizeof(FORK_HEIGHTS) / sizeof(*FORK_HEIGHTS);
 
 /* The index in the FORK_HEIGHTS array that this version of the software will
    support. For example, if CURRENT_FORK_INDEX is 3, this version of the
-   software will support the fork at block height 50,000.
+   software will support the fork at block height 270,000.
    This will default to zero if the FORK_HEIGHTS array is empty, so you don't
    need to change it manually. */
 const uint8_t CURRENT_FORK_INDEX = FORK_HEIGHTS_SIZE == 0 ? 0 : SOFTWARE_SUPPORTED_FORK_INDEX;
@@ -171,7 +169,6 @@ const uint8_t  BLOCK_MAJOR_VERSION_2                         =  2;
 const uint8_t  BLOCK_MAJOR_VERSION_3                         =  3;
 const uint8_t  BLOCK_MAJOR_VERSION_4                         =  4;
 const uint8_t  BLOCK_MAJOR_VERSION_5                         =  5;
-const uint8_t  BLOCK_MAJOR_VERSION_6                         =  6;
 
 const uint8_t  BLOCK_MINOR_VERSION_0                         =  0;
 const uint8_t  BLOCK_MINOR_VERSION_1                         =  1;
@@ -225,6 +222,7 @@ const static   boost::uuids::uuid CRYPTONOTE_NETWORK         =
 
 const char* const SEED_NODES[] = {
     "94.211.137.5:42058", //MunchieHigh420 
-    "95.217.37.172:42058" //AlpHA
+    "95.217.37.172:42058", //AlpHA
+    "35.227.77.174:42058" //drorow
 };
 } // CryptoNote
