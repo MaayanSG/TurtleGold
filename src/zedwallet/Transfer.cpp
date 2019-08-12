@@ -823,7 +823,7 @@ Maybe<uint64_t> getFee()
         std::cout << std::endl 
                   << InformationMsg("What fee do you want to use?")
                   << std::endl
-                  << "Recommended fee is 1 TRTG."
+                  << "Recommended fee is 100 TRTG."
                   << "Hit enter for the default fee of "
                   << formatAmount(WalletConfig::defaultFee)
                   << ": ";
