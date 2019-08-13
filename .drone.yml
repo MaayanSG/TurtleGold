@@ -1,25 +1,35 @@
 ---
-
-# Linux x64 compilation
 kind: pipeline
 name: linux_x64
 
-steps:
-  - name: build
-    image: rikorose/gcc-cmake:gcc-8
-    commands:
-    - apt-get install libboost-all-dev
-    - gcc --version
-    - cmake -version
-    - mkdir build && cd build
-    - cmake -DCMAKE_BUILD_TYPE=Release ..
-    - make
-    - cd src
-    - strip TurtleGold* zedwallet* miner cryptotest wallet-api
-    - tar cxvf "${DRONE_REPO_NAME}_${DRONE_TAG}_${DRONE_RUNNER_PLATFORM}_gcc_8.tar.gz" TurtleGold* zedwallet* miner cryptotest wallet-api
+platform:
+  os: linux
+  arch: amd64
 
-  - name: github_release
-    image: plugins/github-release
-    settings:
-      files: *_gcc_8.tar.gz
-    when: tag
+steps:
+- name: build for gcc 8
+  image: rikorose/gcc-cmake:gcc-8
+  commands:
+  - apt-get install libboost-all-dev
+  - gcc --version
+  - cmake -version
+  - "mkdir build && cd build"
+  - cmake -DCMAKE_BUILD_TYPE=Release ..
+  - make
+  - cd src
+  - mkdir build
+  - strip $BINS
+  - tar czvf "build/${ARCHIVE_NAME}" $BINS
+  environment:
+    ARCHIVE_NAME: "${DRONE_REPO_NAME}_${DRONE_TAG}_${DRONE_RUNNER_PLATFORM}_gcc_8.tar.gz"
+    BINS: TurtleGoldd TurtleGold-service zedwallet zedwallet-beta miner cryptotest wallet-api
+
+- name: publish on github
+  image: plugins/github-release
+  settings:
+    api_key:
+      from_secret: github_api_key
+    files: "build/*"
+  when:
+    event:
+    - tag
