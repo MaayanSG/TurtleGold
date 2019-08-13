@@ -1,9 +1,5 @@
 ![image](https://cdn.discordapp.com/attachments/562746538565304390/563014448726540331/20190403_163028.png)
 
-### Build status
-
-I'd love to add mine but my Drone deployment is private, sorry.
-
 ### Installing
 
 We offer binary images of the latest releases here: https://github.com/turtlegold/TurtleGold/releases
