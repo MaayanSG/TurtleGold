@@ -21,7 +21,5 @@ steps:
   - name: github_release
     image: plugins/github-release
     settings:
-      files: "${DRONE_REPO_NAME}_${DRONE_TAG}_${DRONE_RUNNER_PLATFORM}_gcc_8.tar.gz"
-    when:
-      - tag
-      - push
+      files: *_gcc_8.tar.gz
+    when: tag
