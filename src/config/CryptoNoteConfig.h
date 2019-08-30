@@ -130,10 +130,10 @@ static_assert(0 < UPGRADE_VOTING_THRESHOLD && UPGRADE_VOTING_THRESHOLD <= 100, "
 static_assert(UPGRADE_VOTING_WINDOW > 1, "Bad UPGRADE_VOTING_WINDOW");
 
 /* Block heights we are going to have hard forks at */
-const uint64_t FORK_HEIGHTS[] =
-{
-    1000000 // placeholder
-};
+const uint64_t FORK_HEIGHTS[] = {
+           100000, // max extra size decrease
+           1000000 // placeholder
+        };
 
 /* MAKE SURE TO UPDATE THIS VALUE WITH EVERY MAJOR RELEASE BEFORE A FORK */
 const uint64_t SOFTWARE_SUPPORTED_FORK_INDEX                 = 0;
@@ -213,7 +213,7 @@ const uint64_t DATABASE_READ_BUFFER_MB_DEFAULT_SIZE          = 10;
 const uint32_t DATABASE_DEFAULT_MAX_OPEN_FILES               = 100;
 const uint16_t DATABASE_DEFAULT_BACKGROUND_THREADS_COUNT     = 2;
 
-const char     LATEST_VERSION_URL[]                          = "https://github.com/turtlegold/TurtleGold/releases";
+const char     LATEST_VERSION_URL[]                          = "https://github.com/turtlegold/TurtleGold/releases/latest";
 const std::string LICENSE_URL                                = "https://github.com/turtlegold/TurtleGold/blob/master/LICENSE";
 const static   boost::uuids::uuid CRYPTONOTE_NETWORK         =
 {
@@ -221,8 +221,8 @@ const static   boost::uuids::uuid CRYPTONOTE_NETWORK         =
 };
 
 const char* const SEED_NODES[] = {
-    "94.211.137.5:42058", //MunchieHigh420 
-    "95.217.37.172:42058", //AlpHA
-    "35.227.77.174:42058" //drorow
+    "94.211.137.5:42058", //spookypool.nl 
+    "95.217.37.172:42058", //trtg.turbomine.co
+    "34.77.48.29:42058" //miningpool.fun
 };
 } // CryptoNote

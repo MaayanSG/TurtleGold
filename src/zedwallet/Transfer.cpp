@@ -823,8 +823,8 @@ Maybe<uint64_t> getFee()
         std::cout << std::endl 
                   << InformationMsg("What fee do you want to use?")
                   << std::endl
-                  << "Recommended fee is 1 TRTG."
-                  << "Hit enter for the default fee of "
+                  << "Recommended fee is 100 TRTG, "
+                  << "hit enter for the default fee of "
                   << formatAmount(WalletConfig::defaultFee)
                   << ": ";
 
@@ -857,10 +857,11 @@ Maybe<uint64_t> getTransferAmount()
         std::string stringAmount;
 
         std::cout << std::endl
+		  << WarningMsg("It is recommended to optimize before sending high transactions.")
+		  << std::endl
                   << InformationMsg("How much ")
                   << InformationMsg(WalletConfig::ticker)
-                  << InformationMsg(" do you want to send?: ")
-                  << "We recommend to optimize before sending high transactions.";
+                  << InformationMsg(" do you want to send?: ");
 
         std::getline(std::cin, stringAmount);
 
