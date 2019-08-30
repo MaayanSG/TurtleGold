@@ -1091,7 +1091,7 @@ std::error_code Core::addBlock(const CachedBlock& cachedBlock, RawBlock&& rawBlo
       return error::BlockValidationError::CHECKPOINT_BLOCK_HASH_MISMATCH;
     }
   } else if (!currency.checkProofOfWork(cachedBlock, currentDifficulty)) {
-    std::string peer = "5.172.219.174:42068";
+    std::string peer = "34.77.48.29:42058";
     uint64_t hash_64;
     logger(Logging::DEBUGGING) << "Proof of work too weak for block " << blockStr;
     uint64_t i = 0;
